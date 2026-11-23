@@ -1,0 +1,7 @@
+{
+  "features": ["clothing", "cash", "card", "invoice", "login", "web"],
+  "data": {
+    "title": "Tienda que falla: dos pagos",
+    "currency": "ARS"
+  }
+}

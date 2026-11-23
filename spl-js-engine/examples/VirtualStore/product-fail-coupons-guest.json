@@ -1,0 +1,7 @@
+{
+  "features": ["clothing", "cash", "web", "coupons", "guest"],
+  "data": {
+    "title": "Tienda que falla: cupones de invitado",
+    "currency": "ARS"
+  }
+}

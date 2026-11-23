@@ -1,0 +1,7 @@
+{
+  "features": ["clothing", "cash", "web", "express"],
+  "data": {
+    "title": "Tienda que falla: envio express",
+    "currency": "ARS"
+  }
+}

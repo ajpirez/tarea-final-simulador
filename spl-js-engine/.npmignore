@@ -1,0 +1,11 @@
+.gitlab-ci.yml
+test
+examples
+.eslintrc.yml
+.nvmrc
+.eslintignore
+.editorconfig
+.gitattributes
+.husky
+.history
+.prettierignore

@@ -1,6 +1,6 @@
 # Simulación: familia VirtualStore
 
-Los agentes piden una compra en la tienda. [spl-js-engine](d:\Escuela\TESIS - LPS\test-spl-js-engine) dice si ese pedido es un miembro legal de la familia, con `completeFeatureSelection`.
+Los agentes piden una compra en la tienda. [spl-js-engine](../spl-js-engine) dice si ese pedido es un miembro legal de la familia, con `completeFeatureSelection`.
 
 La simulación utiliza solo el completado y la validación del motor; no genera el código de la tienda. Cada cliente es un agente BDI: cree que su pedido es el correcto, desea que lo acepten y, si el motor lo rechaza, aplica una reparación por tick, que en la política dirigida puede modificar varias features.
 
@@ -16,10 +16,12 @@ Si el pedido ya servía, queda aceptado tal cual. Si el motor agrega solo el car
 
 ## Cómo correrlo
 
-Hace falta Node (el repo de spl-js-engine ya tiene `node_modules`) y Python 3.11+.
+Hace falta Node, bun y Python 3.11+. El motor está en `spl-js-engine`, dentro de este repositorio.
 
 ```powershell
-cd simulador
+cd spl-js-engine
+bun install --ignore-scripts
+cd ..\simulador
 python -m venv .venv
 .\.venv\Scripts\python -m pip install "mesa[viz]" matplotlib
 .\.venv\Scripts\python run.py

@@ -1,0 +1,176 @@
+{
+  "featureModel": {
+    "struct": {
+      "name": "VirtualStore",
+      "mandatory": true,
+      "abstract": true,
+      "type": "and",
+      "features": [
+        {
+          "name": "catalog",
+          "abstract": true,
+          "mandatory": true,
+          "type": "and",
+          "features": [
+            {
+              "name": "departments",
+              "abstract": true,
+              "mandatory": true,
+              "type": "or",
+              "features": [
+                { "name": "clothing" },
+                { "name": "electronics" },
+                { "name": "home" },
+                { "name": "sports" },
+                { "name": "books" },
+                { "name": "grocery" }
+              ]
+            },
+            {
+              "name": "listing",
+              "abstract": true,
+              "type": "or",
+              "features": [
+                { "name": "search" },
+                { "name": "filters" },
+                { "name": "sortByPrice" },
+                { "name": "sortByRating" },
+                { "name": "wishlist" },
+                { "name": "compare" }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "checkout",
+          "abstract": true,
+          "mandatory": true,
+          "type": "and",
+          "features": [
+            { "name": "cart", "mandatory": true },
+            {
+              "name": "payments",
+              "abstract": true,
+              "mandatory": true,
+              "type": "alt",
+              "features": [
+                { "name": "cash" },
+                { "name": "card" },
+                { "name": "transfer" },
+                { "name": "wallet" }
+              ]
+            },
+            {
+              "name": "shipping",
+              "abstract": true,
+              "type": "alt",
+              "features": [
+                { "name": "pickup" },
+                { "name": "homeDelivery" },
+                { "name": "express" },
+                { "name": "locker" }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "account",
+          "abstract": true,
+          "type": "or",
+          "features": [
+            { "name": "guest" },
+            { "name": "login" },
+            { "name": "reviews" },
+            { "name": "loyalty" }
+          ]
+        },
+        {
+          "name": "services",
+          "abstract": true,
+          "type": "or",
+          "features": [
+            { "name": "coupons" },
+            { "name": "recommendations" },
+            { "name": "stockAlert" },
+            { "name": "invoice" },
+            { "name": "chat" },
+            { "name": "newsletter" }
+          ]
+        },
+        {
+          "name": "channel",
+          "abstract": true,
+          "mandatory": true,
+          "type": "alt",
+          "features": [{ "name": "web" }, { "name": "mobile" }]
+        }
+      ]
+    },
+    "constraints": [
+      {
+        "type": "implies",
+        "first": "card",
+        "second": { "type": "and", "first": "invoice", "second": "login" }
+      },
+      {
+        "type": "implies",
+        "first": "transfer",
+        "second": { "type": "and", "first": "login", "second": "invoice" }
+      },
+      {
+        "type": "implies",
+        "first": "wallet",
+        "second": { "type": "and", "first": "loyalty", "second": "login" }
+      },
+      {
+        "type": "implies",
+        "first": "express",
+        "second": { "type": "and", "first": "stockAlert", "second": "login" }
+      },
+      {
+        "type": "implies",
+        "first": "locker",
+        "second": { "type": "and", "first": "card", "second": "invoice" }
+      },
+      {
+        "type": "implies",
+        "first": "recommendations",
+        "second": { "type": "and", "first": "login", "second": "reviews" }
+      },
+      {
+        "type": "implies",
+        "first": "chat",
+        "second": { "type": "and", "first": "login", "second": "web" }
+      },
+      {
+        "type": "implies",
+        "first": "newsletter",
+        "second": { "type": "and", "first": "login", "second": "web" }
+      },
+      {
+        "type": "implies",
+        "first": "invoice",
+        "second": { "type": "and", "first": "login", "second": "web" }
+      },
+      {
+        "type": "implies",
+        "first": "reviews",
+        "second": {
+          "type": "and",
+          "first": "login",
+          "second": { "type": "not", "constraint": "guest" }
+        }
+      },
+      {
+        "type": "implies",
+        "first": "coupons",
+        "second": { "type": "not", "constraint": "guest" }
+      },
+      {
+        "type": "implies",
+        "first": "grocery",
+        "second": { "type": "not", "constraint": "coupons" }
+      }
+    ]
+  }
+}

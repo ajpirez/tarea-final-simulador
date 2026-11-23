@@ -1,0 +1,7 @@
+{
+  "features": ["clothing", "cash", "web", "mobile"],
+  "data": {
+    "title": "Tienda que falla: web y mobile",
+    "currency": "ARS"
+  }
+}

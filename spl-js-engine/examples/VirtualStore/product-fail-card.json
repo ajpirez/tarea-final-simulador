@@ -1,0 +1,7 @@
+{
+  "features": ["clothing", "card", "web"],
+  "data": {
+    "title": "Tienda que falla: tarjeta sola",
+    "currency": "ARS"
+  }
+}

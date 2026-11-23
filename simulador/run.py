@@ -8,7 +8,7 @@ from spl_abm.engine import SplEngine
 from spl_abm.store_model import StoreFamily
 
 HERE = Path(__file__).resolve().parent
-ENGINE_ROOT = Path(r"d:\Escuela\TESIS - LPS\test-spl-js-engine")
+ENGINE_ROOT = HERE.parent / "spl-js-engine"
 STORE_MODEL_PATH = ENGINE_ROOT / "examples" / "VirtualStore" / "model.json"
 SCRIPT_PATH = HERE / "validate-batch.mjs"
 OUTPUT = HERE / "output"

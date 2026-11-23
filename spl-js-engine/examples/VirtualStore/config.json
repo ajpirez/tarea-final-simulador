@@ -1,0 +1,9 @@
+{
+  "delimiters": [
+    {
+      "extension": ["js"],
+      "start": "/*%",
+      "end": "%*/"
+    }
+  ]
+}

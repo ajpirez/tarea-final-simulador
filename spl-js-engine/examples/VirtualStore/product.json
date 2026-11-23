@@ -1,0 +1,16 @@
+{
+  "features": [
+    "card",
+    "grocery",
+    "invoice",
+    "login",
+    "loyalty",
+    "pickup",
+    "stockAlert",
+    "web"
+  ],
+  "data": {
+    "title": "Tienda Norte",
+    "currency": "ARS"
+  }
+}
